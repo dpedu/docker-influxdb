@@ -1,0 +1,5 @@
+#!/bin/sh
+
+chown -R influxdb:influxdb /var/lib/influxdb/
+install -d -g influxdb -o influxdb /var/run/influxdb
+exec sudo -Hu influxdb /usr/bin/influxd -pidfile /var/run/influxdb/influxd.pid -config /etc/influxdb/influxdb.conf
